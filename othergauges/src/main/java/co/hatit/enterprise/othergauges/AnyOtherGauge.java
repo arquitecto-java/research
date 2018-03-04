@@ -1,4 +1,4 @@
-package co.hatit.enterprise.cashgauges;
+package co.hatit.enterprise.othergauges;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Destroyed;
@@ -7,22 +7,21 @@ import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.inject.Singleton;
 
 import co.hatit.enterprise.gauges.Gauge;
 import co.hatit.enterprise.gauges.GaugeRegistry;
 
-@Named
 @ApplicationScoped
-public class IncomeProyection {
+@Named
+public class AnyOtherGauge {
 	
 	@Inject
 	private GaugeRegistry registry;
 	
 	static int counter;
 	
-	public IncomeProyection() {
-		System.out.println("Constructing IncomeProyection " + this);
+	public AnyOtherGauge() {
+		System.out.println("Constructing AnyOtherGauge " + this);
 	}
 	
 	public void init(@Observes @Initialized(ApplicationScoped.class) Object init){
@@ -46,7 +45,7 @@ public class IncomeProyection {
 		return new Gauge(){
 			@Override
 			public String toString() {
-				return "Produced gauge by " + this;
+				return "Produced gauge from AnyOtherGauge";
 			}
 		};
 	}
@@ -57,6 +56,6 @@ public class IncomeProyection {
 	
 	@Override
 	public String toString() {
-		return "IncomeProyection-" + hashCode() + "-withCounter-" + counter;
+		return "AnyOtherGauge-" + hashCode() + "-loadedFrom-" + getClass().getClassLoader() + "-withCounter-" + counter;
 	}
 }

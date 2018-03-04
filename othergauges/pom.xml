@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>co.hatit.enterprise</groupId>
-	<artifactId>gauges</artifactId>
+	<artifactId>othergauges</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>gauges</name>
+	<name>othergauges</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -17,6 +17,12 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>co.hatit.enterprise</groupId>
+			<artifactId>gauges</artifactId>
+			<scope>provided</scope>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>javax.enterprise</groupId>
 			<artifactId>cdi-api</artifactId>
